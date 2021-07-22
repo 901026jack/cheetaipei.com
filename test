@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+</style>
+</head>
+<body>
+<div id="demo">
+<custom-input v-model="result"></custom-input>
+<span>輸出：{{result}}</span>
+</div>
+<script src="https://cdn.bootcss.com/vue/2.3.0/vue.js"></script>
+<script>
+
+Vue.component('CustomInput', {
+template: `
+<div>
+<span>輸入：</span>
+<input
+type="text"
+:value="value"
+@input="$emit('input', $event.target.value)"
+/>
+</div>
+`,
+props: ['value']
+})
+var demo = new Vue({
+el: '#demo',
+data: {
+result:window.location.href
+
+}
+})
+</script>
+</body>
+</html>
